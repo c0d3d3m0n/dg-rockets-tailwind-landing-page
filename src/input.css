@@ -2,8 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-    .section-min-height {
-        min-height: calc(100vh - 4rem);
+@layer components {
+    .toggle-btn > div::before {
+        @apply translate-y-0 rotate-45;
+    }
+    .toggle-btn > div::after {
+        @apply translate-y-0 -rotate-45;
+    }
+    .spin > div {
+        @apply bg-transparent rotate-720 transition-transform duration-500;
+    }
+
+    .hide-middle-bar > div {
+        @apply bg-transparent;
     }
 }
+
+@layer utilities {
+    .section-min-height {
+        min-height: calc(100vh - 68px);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(720deg);
+    }
+}
+
+.toggle-btn > div {
+    animation: spin 0.5s linear;
+}
+
